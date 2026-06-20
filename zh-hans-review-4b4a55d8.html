@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麻将胡了 – 稳定入口与页面说明 | zh-hans-mahjong.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f6f7f9;
+      color: #1e222b;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      padding: 3.2rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #eaeef2;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #13181f;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      color: #3d4755;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #eef2f6;
+      border-radius: 40px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.9rem;
+      color: #2f3a4a;
+      margin-top: 0.8rem;
+      border: 1px solid #d7dee6;
+    }
+    /* 卡片分割区 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e5eaef;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 520;
+      margin-bottom: 0.6rem;
+      color: #171d26;
+    }
+    .card p {
+      font-size: 0.98rem;
+      color: #3f4a58;
+    }
+    /* 说明区 */
+    .info-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      margin-bottom: 2.8rem;
+      border: 1px solid #e5eaef;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+    .info-section h2 {
+      font-size: 1.6rem;
+      font-weight: 520;
+      margin-bottom: 1rem;
+      color: #141b24;
+    }
+    .info-section p {
+      margin-bottom: 1rem;
+      color: #2f3948;
+    }
+    .info-section p:last-child {
+      margin-bottom: 0;
+    }
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2rem 1.6rem;
+      margin-bottom: 2.8rem;
+      border: 1px solid #e5eaef;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      margin-bottom: 1.4rem;
+      color: #141b24;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 540;
+      color: #141b24;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item span {
+      color: #364152;
+      font-size: 0.96rem;
+    }
+    .footer-links {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #e5eaef;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .footer-links a {
+      color: #1d4e8f;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dotted #b4c6db;
+    }
+    .footer-links a:hover {
+      color: #0b2d57;
+      border-bottom: 1px solid #1d4e8f;
+    }
+    .footer-links .sep {
+      margin: 0 0.6rem;
+      color: #8f9aa8;
+    }
+    .responsive-meta {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #8f9aa8;
+      margin-top: 2rem;
+      border-top: 1px solid #e0e6ec;
+      padding-top: 1.2rem;
+    }
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .card-grid {
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>麻将胡了 · 稳定体验从这里开始</h1>
+    <p>一个长期维护的中文麻将资讯与界面入口，围绕规则、牌型与版本变化持续更新。不管是老朋友还是新玩家，都能找到自己熟悉的节奏。</p>
+    <div class="tagline">轻量 · 简洁 · 无干扰说明</div>
+  </div>
+
+  <!-- 优势区 三个卡片 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>📌 页面结构清晰</h3>
+      <p>站点内容按功能分区，无冗余推荐或跳转干扰。每个说明卡片只聚焦一个话题，阅读负担小。</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ 长期维护</h3>
+      <p>版本与内容持续修订，不追逐短期热点。页面说明稳定，适合反复查阅与对比。</p>
+    </div>
+    <div class="card">
+      <h3>🔍 场景覆盖广</h3>
+      <p>从基本规则到番种解释，再到术语对照，尽量覆盖常见需求。无论线上还是线下，都能快速参考。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：从稳定入口与页面说明展开 -->
+  <div class="info-section">
+    <h2>稳定的入口，清晰的说明</h2>
+    <p>很多麻将爱好者经常遇到一个问题：想找个靠谱的规则说明或牌型汇总，结果搜出来的页面不是缺这少那，就是广告遮挡严重。<a href="https://zh-hans-mahjong.com">麻将胡了</a>这个页面恰恰相反——它不追求花哨的装饰，而是把精力放在信息本身。页面结构经过多次调整，现在的布局让每个章节都容易定位。</p>
+    <p>内容方面，站点整理了不同规则下的胡牌类型、台数计算以及常用术语。每一个概念都配有简要说明，不会让读者陷入大段文本。同时站内没有诱导性弹窗或强制跳转，阅读体验很安静。这种设计尤其适合想快速确认规则、或者刚接触麻将想系统了解的朋友。</p>
+    <p>另外，页面也兼顾了不同设备。手机、平板、电脑都能获得一致的浏览效果。作为日常查阅的入口，稳定和靠谱是基本前提，而这个页面恰好符合这两点。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <strong>❓ 页面上的规则适用于哪种麻将？</strong>
+      <span>以国标 / 立直 / 广东麻将的部分常见规则为参考，不局限于单一体系。每个说明都标注了来源和适用范围。</span>
+    </div>
+    <div class="faq-item">
+      <strong>❓ 内容会频繁改动吗？</strong>
+      <span>一般随版本优化而更新，每次改动都会保留版本说明。不会突然移除关键信息。</span>
+    </div>
+    <div class="faq-item">
+      <strong>❓ 除了规则还有别的板块吗？</strong>
+      <span>主要围绕规则、番种、术语场景展开。后续可能增加对局示例与常见问题汇总。</span>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span>📖 更多内容请访问 </span>
+    <a href="https://zh-hans-mahjong.com">麻将胡了</a>
+    <span class="sep">·</span>
+    <span>问题反馈 · 页面说明</span>
+    <span class="sep">·</span>
+    <span style="color:#5f6c7c;">版本 2.0 – 稳定入口</span>
+  </div>
+
+  <div class="responsive-meta">
+    内容更新于最近周期 · 页面结构可复用
+  </div>
+</div>
+</body>
+</html>
