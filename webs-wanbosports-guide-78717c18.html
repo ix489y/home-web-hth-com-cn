@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>万博体育 · 竞技视野</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1b2a3a;
+            line-height: 1.7;
+            padding: 0 16px;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        /* hero 杂志通栏 */
+        .hero {
+            background: linear-gradient(145deg, #0a2e3f 0%, #1b4e5a 70%, #2d6d71 100%);
+            border-radius: 28px;
+            padding: 48px 32px 56px;
+            margin-bottom: 48px;
+            color: #eaf3f0;
+            box-shadow: 0 12px 28px rgba(14, 55, 60, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(100, 200, 190, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            max-width: 12em;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #c2dedb;
+            max-width: 28em;
+            margin-bottom: 18px;
+            font-weight: 350;
+        }
+
+        .hero .meta-tag {
+            display: inline-block;
+            background: rgba(90, 180, 170, 0.2);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #bee5df;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 网格卡片 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 40px 0 48px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 28px 22px 32px;
+            box-shadow: 0 4px 16px rgba(0, 30, 30, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #e3f0ed;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(35, 85, 80, 0.08);
+        }
+
+        .card .icon {
+            font-size: 1.7rem;
+            margin-bottom: 6px;
+            display: inline-block;
+            background: #e1f0ec;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 14px;
+            color: #1b5b5b;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            margin: 12px 0 8px;
+            color: #0e3b3f;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: #2d4450;
+        }
+
+        /* 背景说明 + 三段介绍组合 */
+        .feature-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 40px 0;
+            align-items: flex-start;
+        }
+
+        .feature-left {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .feature-left h2 {
+            font-size: 1.8rem;
+            font-weight: 480;
+            letter-spacing: -0.01em;
+            color: #12373d;
+            margin-bottom: 12px;
+            border-left: 5px solid #2a8a87;
+            padding-left: 18px;
+        }
+
+        .feature-left .blurb {
+            background: #f0f9f5;
+            padding: 20px 24px;
+            border-radius: 20px;
+            color: #1a4045;
+            font-size: 0.98rem;
+            margin: 16px 0 24px;
+            border: 1px solid #d0e7e1;
+        }
+
+        .feature-left .blurb strong {
+            color: #115a5a;
+        }
+
+        .feature-right {
+            flex: 1.6;
+            min-width: 220px;
+            background: #ffffff;
+            padding: 24px 20px;
+            border-radius: 24px;
+            box-shadow: 0 2px 12px rgba(40, 90, 85, 0.06);
+            border: 1px solid #daede8;
+        }
+
+        .feature-right h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #28746f;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #b7dbd4;
+            padding-bottom: 8px;
+        }
+
+        .feature-right ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-right li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #deede9;
+            display: flex;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #1f4b4b;
+        }
+
+        .feature-right li::before {
+            content: '▹';
+            color: #2f928b;
+            font-weight: bold;
+        }
+
+        /* 叙述段落 */
+        .narrative {
+            margin: 40px 0 32px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 12px rgba(0, 20, 20, 0.02);
+            border: 1px solid #deefe9;
+        }
+
+        .narrative p {
+            margin-bottom: 1.2em;
+            font-size: 1rem;
+            color: #203c40;
+        }
+
+        .narrative .inset-link {
+            background: #e9f4f0;
+            padding: 14px 20px;
+            border-radius: 18px;
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.97rem;
+            border-left: 6px solid #2f8f89;
+        }
+
+        .narrative .inset-link a {
+            color: #075a5a;
+            text-decoration: none;
+            font-weight: 520;
+            border-bottom: 1px solid #89bbb4;
+        }
+
+        .narrative .inset-link a:hover {
+            color: #022e2e;
+            border-bottom-color: #022e2e;
+        }
+
+        /* 页尾 */
+        .site-footer {
+            margin-top: 50px;
+            padding: 24px 0 16px;
+            border-top: 2px solid #d3e7e1;
+            text-align: center;
+            color: #3b6868;
+            font-size: 0.9rem;
+        }
+
+        .site-footer a {
+            color: #1b6b68;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: #f2fbf8;
+            padding: 20px 24px;
+            border-radius: 24px;
+            margin: 20px 0 10px;
+            border: 1px solid #cde3dd;
+        }
+
+        .faq-mini div {
+            flex: 1;
+            min-width: 140px;
+            padding: 4px 0;
+        }
+
+        .faq-mini strong {
+            color: #0f4b4b;
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 3px;
+        }
+
+        .faq-mini span {
+            font-size: 0.9rem;
+            color: #2d5c5c;
+        }
+
+        /* 移动端调整 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 32px 20px 40px;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .feature-block {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .feature-left h2 {
+                font-size: 1.5rem;
+            }
+            .narrative {
+                padding: 24px 18px;
+            }
+            .faq-mini {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+            .card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 杂志通栏 Hero -->
+    <div class="hero">
+        <h1>竞技的另一种<br>观看方式</h1>
+        <div class="sub">从赛事节奏到运动日常，万博体育始终在场。不喧哗，只记录真实的体育轮廓。</div>
+        <span class="meta-tag">⚡ 专题 · 运动叙事</span>
+    </div>
+
+    <!-- 网格卡片：特点 / 视角 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="icon">🏃</div>
+            <h3>赛事视野</h3>
+            <p>覆盖主流联赛与新兴赛事，从场地到数据，提供克制的观赛参照。</p>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>运动日志</h3>
+            <p>不追求速报，更在意赛前赛后的脉络，记录属于运动的片段与细节。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>场外连接</h3>
+            <p>运动员故事、战术拆解、装备观察——体育不止于比分。</p>
+        </div>
+    </div>
+
+    <!-- 背景说明 + 右侧摘要 -->
+    <div class="feature-block">
+        <div class="feature-left">
+            <h2>不止是竞技</h2>
+            <div class="blurb">
+                <strong>万博体育</strong> 起初只是一个小型赛事信息站，经过数年沉淀，逐渐将视线投向更宽广的体育文化。它不追逐流量的峰值，而是在每个赛季、每场比赛背后，尝试用平实的语言还原运动本身的质感。从田径场到绿茵地，从球馆到户外，这里没有夸张的口号，只有对竞技场景的诚实描述。
+            </div>
+            <p style="color: #2b5959; font-size: 0.95rem; margin-top: 8px;">
+                在信息过载的时代，保持一种安静的关注。万博体育希望成为一个值得停留的角落，让真正热爱体育的人找到属于他们的叙述。
+            </p>
+        </div>
+        <div class="feature-right">
+            <h4>栏目速览</h4>
+            <ul>
+                <li>赛前简报 · 不预设立场</li>
+                <li>运动员侧写 · 克制而深入</li>
+                <li>场地与装备 · 功能与审美</li>
+                <li>赛事数据 · 干净可读</li>
+                <li>每周体育闲谈</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 三段自然介绍（叙述式段落） -->
+    <div class="narrative">
+        <p>
+            第一次在 <a href="https://webs-wanbosports.com" style="color: #0d5f5a; text-decoration: underline; text-underline-offset: 3px;">万博体育</a> 读到一篇关于马拉松配速策略的短文，没有复杂术语，只有对呼吸节奏和体能分配的朴素描述。那种平视的感觉让人印象深刻。后来慢慢发现，平台上很多内容都维持着这样温和的基调：不夸大某一项运动，也不刻意制造对立。每个项目都被放在合适的篇幅里，像朋友之间的闲聊。
+        </p>
+        <p>
+            体育的魅力往往藏在细节里——比如网球比赛中换边时的步伐调整，或者自行车手在爬坡时的表情管理。万博体育的视角常常落在这些容易被忽略的瞬间。它并不试图定义什么是“伟大的运动”，而是把定义权交还给参与者。这种分寸感，在日益嘈杂的体育媒体环境中显得格外珍贵。
+        </p>
+        <p>
+            如今打开万博体育的页面，依然能看到干净的版面和克制的图片选择。没有弹窗，没有冗余的广告遮挡。它像一间安静的体育阅览室，你可以随时走进去，翻翻最近的比赛记录，或者读一篇关于某位老将职业生涯的回顾。在这里，速度不是唯一的追求，真实和准确才是更长久的标尺。
+        </p>
+        <div class="inset-link">
+            💬 了解更多关于体育内容的另一种讲述，欢迎前往 <a href="https://webs-wanbosports.com">万博体育</a> 浏览最新专题。
+        </div>
+    </div>
+
+    <!-- 类似FAQ摘要，但更轻巧 -->
+    <div class="faq-mini">
+        <div>
+            <strong>📌 常见关注点</strong>
+            <span>赛事覆盖面如何？——主流足球、篮球、网球及部分小众项目均有定期内容。</span>
+        </div>
+        <div>
+            <strong>📌 更新频率</strong>
+            <span>每周3–5篇原创笔记，赛季期间增加赛前预览与赛后小结。</span>
+        </div>
+        <div>
+            <strong>📌 内容调性</strong>
+            <span>客观，平实，避免情绪渲染。适合希望安静阅读体育的观众。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="site-footer">
+        <p>© 万博体育 · 以冷静目光注视竞技场。<br>
+        若你对体育世界的多样性感兴趣，不妨在闲暇时看看 <a href="https://webs-wanbosports.com">万博体育</a>，那里或许有你寻找的叙述。</p>
+    </div>
+
+</div>
+</body>
+</html>
