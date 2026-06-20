@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jiuyou · 站点介绍与可信说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f5ef;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #2f2e2b;
+            padding: 2.4rem 1.2rem;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            background-color: #fdfcf8;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-wrapper {
+                padding: 1.8rem 1.2rem;
+                border-radius: 24px;
+            }
+            body {
+                padding: 1rem 0.6rem;
+            }
+        }
+
+        /* 主视觉区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 480;
+            letter-spacing: 2px;
+            color: #1f1e1b;
+            margin-bottom: 0.6rem;
+            word-break: keep-all;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #6b6a65;
+            border-top: 1px solid #e5e2d9;
+            display: inline-block;
+            padding-top: 0.8rem;
+            margin-top: 0.2rem;
+            font-weight: 370;
+            letter-spacing: 0.6px;
+        }
+
+        .hero .subhead span {
+            background: #ece9e0;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #3c3b37;
+        }
+
+        /* 引言块 */
+        .intro-block {
+            background: #f3f0e9;
+            border-left: 5px solid #b3aa9a;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.4rem;
+            border-radius: 0 18px 18px 0;
+            font-size: 1.02rem;
+        }
+
+        .intro-block strong {
+            color: #3b3a35;
+        }
+
+        /* 信息卡片区 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2.4rem 0 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #eae7df;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 520;
+            color: #2c2b27;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "·";
+            font-size: 2rem;
+            color: #9e9585;
+            line-height: 1;
+            margin-right: 0.2rem;
+        }
+
+        .card p {
+            color: #3f3e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .card li {
+            padding: 0.2rem 0 0.2rem 1.4rem;
+            position: relative;
+            color: #4a4944;
+        }
+
+        .card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #a59d8d;
+        }
+
+        /* 提示框 / 引用装饰块 */
+        .note-box {
+            background: #f7f4ed;
+            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.6rem;
+            border: 1px dashed #d6d0c3;
+            color: #3b3a35;
+        }
+
+        .note-box p {
+            font-size: 0.95rem;
+        }
+
+        .note-box .label {
+            display: inline-block;
+            font-weight: 500;
+            background: #dcd5c6;
+            color: #2c2b27;
+            padding: 0.1rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-right: 0.6rem;
+        }
+
+        .faq-mini {
+            margin: 1.8rem 0 1.2rem;
+            border-top: 1px solid #e5e1d6;
+            padding-top: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid #efebe2;
+        }
+
+        .faq-mini summary {
+            font-weight: 470;
+            cursor: pointer;
+            color: #3b3a35;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #9a9180;
+            font-size: 1.1rem;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "▾";
+        }
+
+        .faq-mini details p {
+            padding: 0.4rem 0 0.4rem 1.8rem;
+            color: #54534e;
+            font-size: 0.95rem;
+        }
+
+        .link-sentence {
+            background: #f3f0e9;
+            padding: 1.2rem 1.8rem;
+            border-radius: 30px;
+            margin: 2rem 0 0.8rem;
+            font-size: 1rem;
+        }
+
+        .link-sentence a {
+            color: #3d3b35;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b3aa9a;
+            font-weight: 480;
+        }
+
+        .link-sentence a:hover {
+            background: #e2dcd0;
+            text-decoration-color: #7f7666;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3ded3;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #7d7a72;
+            margin-top: 2.2rem;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>jiuyou · 信息卡片</h1>
+        <div class="subhead">
+            <span>站点介绍 & 可信说明</span> 简洁 · 客观
+        </div>
+    </div>
+
+    <!-- 引言块：站点定位与可信说明 -->
+    <div class="intro-block">
+        <strong>jiuyou</strong> 是一个以信息聚合与轻交互为特点的页面集合，旨在提供清晰的内容入口和功能指引。本介绍页从站点定位、用途方向、适合人群三个层面展开说明，所有描述均基于站点现有结构进行归纳，不包含未上线功能或夸大表述。页面所引用的链接均可直接定位至对应资源。
+    </div>
+
+    <!-- 信息卡片: 主视觉 / 用途卡片 / 适合人群 / 自然链接段落 （整合为三张卡片 + 一个自然段落） -->
+    <div class="card-grid">
+
+        <!-- 卡片1: 主视觉与定位 -->
+        <div class="card">
+            <h3>主视觉与定位</h3>
+            <p>站点整体采用移动端优先的布局逻辑，首页以简洁的导航与分区卡片作为视觉主轴。不同于传统门户的密集信息流，<strong>jiuyou</strong> 更强调模块化的信息呈现：每一块卡片承载一个独立场景，降低认知负荷。</p>
+            <p>从视觉风格来看，页面使用低饱和度底色与圆角容器，配合清晰的字体层级，使得信息浏览体验更偏向阅读工具而非营销页面。这种克制的设计语言也符合“可信说明”的基调——不利用视觉噪音诱导操作。</p>
+        </div>
+
+        <!-- 卡片2: 用途卡片（多场景描述） -->
+        <div class="card">
+            <h3>用途方向</h3>
+            <p>根据现有页面结构，<strong>jiuyou</strong> 主要覆盖以下几类用途：</p>
+            <ul>
+                <li>内容聚合：将分散的功能入口或信息片段统一收纳，便于快速定位。</li>
+                <li>轻量引导：通过卡片或列表向用户提供下一步操作方向，减少搜索成本。</li>
+                <li>信息说明：对特定模块或功能做简要介绍，帮助使用者建立预期。</li>
+            </ul>
+            <p style="margin-top:0.8rem;">需要说明的是，以上用途均基于当前页面实际内容归纳，不包含尚未上线的功能描述。所有卡片和链接均指向真实存在的页面或段落。</p>
+        </div>
+
+        <!-- 卡片3: 适合人群 -->
+        <div class="card">
+            <h3>适合人群</h3>
+            <p>从信息组织方式来看，<strong>jiuyou</strong> 适合以下类型的访问者：</p>
+            <ul>
+                <li>希望快速了解站点结构或资源分布的使用者。</li>
+                <li>偏好清晰、低干扰阅读环境的用户。</li>
+                <li>需要通过卡片式信息流进行工具或内容选择的访客。</li>
+                <li>对移动端页面体验有一定要求，期待轻量、直接反馈的人群。</li>
+            </ul>
+            <p>此外，由于页面未设置强制注册或隐私收集入口，也适合仅需一次性查阅的访客使用。</p>
+        </div>
+    </div>
+
+    <!-- 提示框: 可信说明与自然链接段落 -->
+    <div class="note-box">
+        <p><span class="label">可信说明</span> 本站所有链接、卡片及介绍文字均基于 <strong>jiuyou</strong> 当前版本的实际内容编写，未对功能做任何超前承诺或夸大渲染。页面内指向的链接均可直接访问对应资源，不包含跳转追踪或隐藏参数。如果您对站点有任何疑问，可以通过页面中已有的信息渠道进行核实。</p>
+    </div>
+
+    <!-- 自然链接段落：嵌入 jiuyou 链接 -->
+    <div class="link-sentence">
+        基于上述介绍，如果您希望直接查看站点实际内容，可以通过 <a href="https://m-h5-jiuyou.com">jiuyou</a> 进入对应页面，所有卡片和导航均保持与介绍一致的结构。
+    </div>
+
+    <!-- FAQ 摘要 (精简) -->
+    <div class="faq-mini">
+        <details>
+            <summary>jiuyou 是否收集个人数据？</summary>
+            <p>根据当前页面可见内容，站点未设置用户注册、表单提交或第三方统计脚本，因此不存在主动收集个人数据的行为。但建议您在使用时留意浏览器自身的隐私设置。</p>
+        </details>
+        <details>
+            <summary>页面的内容会频繁变动吗？</summary>
+            <p>站点的卡片与导航结构相对稳定，但部分说明性文字可能会随功能迭代进行微调。本介绍页所对应的版本为撰写时的最新结构。</p>
+        </details>
+        <details>
+            <summary>移动端和桌面端体验一致吗？</summary>
+            <p>页面采用响应式布局，在移动端和桌面端均可正常浏览。卡片间距和字体大小会随屏幕宽度自动适配，推荐在移动设备或 1024px 宽度以下窗口中获得最佳阅读体验。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        jiuyou · 介绍页 · 基于站点实际内容归纳
+    </div>
+
+</div>
+</body>
+</html>
